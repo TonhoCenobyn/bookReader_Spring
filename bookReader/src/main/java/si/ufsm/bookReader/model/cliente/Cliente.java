@@ -43,4 +43,6 @@ public class Cliente {
             inverseJoinColumns = @JoinColumn(name = "livro_id")
     )
     private List<Livro> livros;
+
+    private String permissao;
 }

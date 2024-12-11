@@ -1,5 +1,6 @@
 package si.ufsm.bookReader.service;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import si.ufsm.bookReader.model.cliente.Cliente;
 import si.ufsm.bookReader.model.cliente.ClienteRepository;
@@ -20,6 +21,7 @@ public class ClienteService {
     }
 
     public void Salvar(Cliente cliente){
+        cliente.setSenha(new BCryptPasswordEncoder().encode(cliente.getSenha()));
         this.clienteRepository.save(cliente);
     }
 
